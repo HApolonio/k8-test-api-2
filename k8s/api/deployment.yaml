@@ -15,6 +15,9 @@ spec:
       - name: my-api
         image: hapolonio/k8-test-api-2:v3
         resources:
+          requests:
+            memory: "32Mi"
+            cpu: "125m"
           limits:
             memory: "128Mi"
             cpu: "500m"
@@ -37,4 +40,4 @@ spec:
     - port: 80
       targetPort: 8080
       nodePort: 30000
-  type: NodePort
+  type: LoadBalancer
